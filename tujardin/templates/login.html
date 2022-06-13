@@ -1,0 +1,101 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% load static %}
+
+    <link href="{% static 'estilos/bootstrap.min.css' %}" type="text/css" rel="stylesheet"> 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+    
+    <script src="{% static 'js/validate.js' %}"></script> 
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos/estilos.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/arbol.ico' %}">
+    <title>Inicio sesión</title>
+</head>
+<body>
+  <br>
+  <br>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'img/arbol.ico' %}" width="30" height="30" alt="" href="{% url 'index' %}">
+    </a>
+    <a style=" text-align: center;color:aliceblue;">TuJardin</a>
+    <br>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <br>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{% url 'empresa' %}">Quiénes somos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'products' %}">Productos</a>
+        </li>
+      </ul>
+      <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search" style="border-radius: 15px; ">
+        <button class="btn btn-dark:hover my-2 my-sm-0" type="submit" style="background: rgb(0, 0, 0);border: none;color:rgb(255, 255, 255)">Buscar</button>
+      </form>
+    </div>
+  </nav>
+    <div class="container">
+        <div class="jumbotron ">
+        <form class="form-signin" id="reg" action="{% url 'index' %}" method="post">
+            <img class="mb-4" src="{% static 'img/arbol.ico' %}" alt="" width="70" height="70" style="text-align: center;">
+            <br>
+            <input type="email" id="email" name="email" class="form-control" required placeholder="Correo electrónico" >
+            <br>
+            <input type="password" id="password" name="password" class="form-control" minlength="8" required placeholder="Contraseña" >
+            <br>
+            <a type="submit" class="btn btn-lg btn-primary btn-block">Iniciar sesion</a>
+            <br>
+            <div style="text-align: center;">
+                <a href="{% url 'register' %}">registra una nueva cuenta</a>
+            </div>
+        </form>
+        </div>
+    </div>
+    <footer class="bg-transparent text-center text-lg-start">
+        <div class="container p-4">
+            <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0" style="text-align: center;padding-left: 5%">
+                <img src="{% static 'img/arbol.ico' %}" alt="" style="width: 20%;">
+            </div>
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <div style="text-align: center;">
+                    <ul style="list-style:none; text-align: center;padding-left: 0%;">
+                        <li>
+                            <small onmouseover="style.color = 'green'" onmouseout="style.color= 'black'">Trabaja con nosotros</small>
+                        </li>
+                        <li>
+                            <small onmouseover="style.color = 'green'" onmouseout="style.color= 'black'">Términos y condiciones</small>
+                        </li>
+                        <li>
+                            <small onmouseover="style.color = 'green'" onmouseout="style.color= 'black'">Servicio al cliente</small>
+                        </li>
+                        <li> <td><img src="{% static 'img/instagram.svg' %}" onclick="location.href='https://www.instagram.com/'"></td>
+                          <td><img src="{% static 'img/facebook.svg' %}" onclick="location.href='https://www.facebook.com/'"></td>
+                          <td><img src="{% static 'img/twitter.svg' %}" onclick="location.href='https://www.twitter.com/'"></td></li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgb(10, 253, 127);">
+            © 2022 Copyright: Eloi Espinaza
+            <a class="text-dark" href="{% url 'index' %}">TuJardin.cl</a>
+            </div>
+    </footer>
+</body>
+</html>
